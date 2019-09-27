@@ -1,5 +1,5 @@
 //
-//  SearchResult.swift
+//  MainPresenter.swift
 //  SearchViewer👀
 //
 //  Created by 이동영 on 28/09/2019.
@@ -7,8 +7,3 @@
 //
 
 import Foundation
-
-struct SearchResult {
-    let title: String
-    let imageUrl: URL
-}
