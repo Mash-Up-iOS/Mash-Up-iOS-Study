@@ -42,7 +42,7 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCell.reuseId,
-            for: indexPath)
+                                                      for: indexPath)
         guard
             let searchResultCell = cell as? SearchResultCell
             else { return cell }
@@ -56,13 +56,39 @@ extension MainViewController: UICollectionViewDataSource {
 // MARK: - Collection View Delegate
 extension MainViewController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        guard
+            let searchResultCell = cell as? SearchResultCell
+            else { return }
+        let model = presenter.cellForItem(at: indexPath.item)
+        searchResultCell.updateThumnail(image: model.thumnailImage)
+    }
 }
 // MARK: - Collection View Layout Delegate
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 15,
+                            left: 15,
+                            bottom: 15,
+                            right: 15)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let side = UIScreen.main.bounds.width/3 - 10.0
+        let side = UIScreen.main.bounds.width/3 - 20
         return CGSize(width: side,
                       height: side)
     }
