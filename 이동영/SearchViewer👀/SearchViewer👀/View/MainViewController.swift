@@ -20,37 +20,50 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupsearchResultCollectionView()
-        searchResultListView.dataSource = self
     }
     
     private func setupsearchResultCollectionView() {
         searchResultListView.register(SearchResultCell.nib,
                                       forCellWithReuseIdentifier: SearchResultCell.reuseId)
+        searchResultListView.dataSource = self
+        searchResultListView.delegate = self
     }
     
 }
 // MARK: - Collection View Data Source
 extension MainViewController: UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        
         return presenter.numberOfItems(section: section)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCell.reuseId,
             for: indexPath)
         guard
             let searchResultCell = cell as? SearchResultCell
             else { return cell }
         
-        let searchResult = presenter.cellForItem(at: indexPath.item)
-        searchResultCell.configure(searchResult: searchResult)
-        
+        let model = presenter.cellForItem(at: indexPath.item)
+        searchResultCell.configure(searchResult: model)
         return searchResultCell
     }
     
 }
-// MARK: - Collection
+// MARK: - Collection View Delegate
+extension MainViewController: UICollectionViewDelegate {
+    
+}
+// MARK: - Collection View Layout Delegate
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let side = UIScreen.main.bounds.width/3 - 10.0
+        return CGSize(width: side,
+                      height: side)
+    }
 }
