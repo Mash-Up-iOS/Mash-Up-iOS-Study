@@ -10,13 +10,13 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    // MARK: - Properties
+    // MARK:  - Properties
     var presenter: MainPresenterType!
     
     // MARK: IBOutlets
     @IBOutlet weak var searchResultListView: UICollectionView!
     
-    // MARK: - Methods
+    // MARK:  - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupsearchResultCollectionView()
@@ -27,6 +27,24 @@ class MainViewController: UIViewController {
                                       forCellWithReuseIdentifier: SearchResultCell.reuseId)
         searchResultListView.dataSource = self
         searchResultListView.delegate = self
+        setupLayout()
+    }
+    
+    private func setupLayout() {
+        guard
+            let layout = searchResultListView.collectionViewLayout as? UICollectionViewFlowLayout
+            else { return }
+        let side = UIScreen.main.bounds.width/3 - 20
+        
+        layout.itemSize = CGSize(width: side,
+                                 height: side)
+        print(#function, layout.itemSize)
+        layout.sectionInset = UIEdgeInsets(top: 15,
+                                           left: 15,
+                                           bottom: 15,
+                                           right: 15)
+        layout.minimumLineSpacing = 15
+        layout.minimumInteritemSpacing = 15
     }
     
 }
@@ -49,6 +67,8 @@ extension MainViewController: UICollectionViewDataSource {
         
         let model = presenter.cellForItem(at: indexPath.item)
         searchResultCell.configure(searchResult: model)
+        searchResultCell.thumnailImageView.contentMode = .scaleAspectFill
+        
         return searchResultCell
     }
     
@@ -65,31 +85,5 @@ extension MainViewController: UICollectionViewDelegate {
         let model = presenter.cellForItem(at: indexPath.item)
         searchResultCell.updateThumnail(image: model.thumnailImage)
     }
-}
-// MARK: - Collection View Layout Delegate
-extension MainViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 15,
-                            left: 15,
-                            bottom: 15,
-                            right: 15)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let side = UIScreen.main.bounds.width/3 - 20
-        return CGSize(width: side,
-                      height: side)
-    }
 }

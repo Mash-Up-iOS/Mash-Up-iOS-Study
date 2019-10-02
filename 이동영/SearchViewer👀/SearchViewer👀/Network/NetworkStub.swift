@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class NetWorkStub: NetWorkType {
+class NetworkStub: NetworkType {
     
     // MARK: Properties
     static let shared = {
-        return NetWorkStub()
+        return NetworkStub()
     }
     
     // MARK: Methods
@@ -21,8 +21,14 @@ class NetWorkStub: NetWorkType {
         completion(.success(Dummy.data))
     }
     
-    func fetchImage(url: URL = URL(string: "")!, completion: @escaping (Result<UIImage, Error>) -> Void) {
-        completion(.success(Dummy.image))
+    func fetchImage(url: URL = URL(string: "www.naver.com")!, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        DispatchQueue.global().async {
+            sleep(UInt32(Int.random(in: 0...5)))
+            DispatchQueue.main.async {
+                completion(.success(Dummy.image))
+            }
+        }
+        
     }
     
 }

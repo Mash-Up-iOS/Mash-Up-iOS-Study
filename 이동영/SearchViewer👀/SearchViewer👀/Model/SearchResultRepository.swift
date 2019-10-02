@@ -1,5 +1,5 @@
 //
-//  URL+Extension.swift
+//  SearchResult.swift
 //  SearchViewer👀
 //
 //  Created by 이동영 on 28/09/2019.
@@ -7,10 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
-extension URL {
-    
-    var fileName: String {
-        return self.deletingPathExtension().lastPathComponent
-    }
+// MARK: - SearchResultRepository
+struct SearchResultRepository {
+        let searchResults: [SearchResult]
 }

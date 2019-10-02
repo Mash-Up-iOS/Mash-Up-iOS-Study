@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
+// MARK: - SearchResult
 struct SearchResult {
     let title: String
     let imageUrl: URL
+    let thumnailImage: UIImage?
 }
