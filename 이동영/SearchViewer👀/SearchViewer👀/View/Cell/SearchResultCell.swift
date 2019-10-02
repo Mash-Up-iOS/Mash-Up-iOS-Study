@@ -92,28 +92,27 @@ class SearchResultCell: UICollectionViewCell {
     
     func configure(searchResult: SearchResult) {
         titleLabel.text = searchResult.title
-        updateThumnail(image: searchResult.thumnailImage)
+        updateThumnail(searchResult)
     }
     
-    func updateThumnail(image: UIImage?) {
-        guard
-            let image = image
-            else {
-                loading(on: true)
-                NetworkStub().fetchImage(completion: { r in
-                    switch r {
-                    case .success(let image):
-                        self.loading(on: false)
-                        self.thumnailImageView.image = image
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                        break
-                    }
-                })
-                return
+    func updateThumnail(_ thumnailInfo: SearchResult) {
+        if let image = thumnailInfo.thumnailImage {
+            thumnailImageView.image = image
+            loading(on: false)
+            return
         }
-        thumnailImageView.image = image
-        loading(on: false)
+        loading(on: true)
+        NetworkStub.fetchImage(url: thumnailInfo.imageUrl) {
+            [weak self] result in
+            switch result {
+            case .success(let image):
+                self?.loading(on: false)
+                self?.thumnailImageView.image = image
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        return
     }
     
     private func loading(on: Bool) {
