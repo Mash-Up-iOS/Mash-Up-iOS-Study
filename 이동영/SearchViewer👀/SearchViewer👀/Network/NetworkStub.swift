@@ -9,19 +9,17 @@
 import Foundation
 import UIKit
 
-class NetworkStub: NetworkType {
+struct NetworkStub: NetworkType {
     
     // MARK: Properties
-    static let shared = {
-        return NetworkStub()
-    }
     
     // MARK: Methods
-    func request(query: String = "", completion: @escaping (Result<Data, Error>) -> Void) {
-        completion(.success(Dummy.data))
+    /// - Todo: Week2
+    static func request(query: String = "", completion: @escaping (Result<Data, Error>) -> Void) {
+    // completion(.success(Dummy.data))
     }
     
-    func fetchImage(url: URL = URL(string: "www.naver.com")!, completion: @escaping (Result<UIImage, Error>) -> Void) {
+    static func fetchImage(url: URL, completion: @escaping (Result<UIImage, Error>) -> Void) {
         DispatchQueue.global().async {
             sleep(UInt32(Int.random(in: 0...5)))
             DispatchQueue.main.async {
@@ -30,9 +28,8 @@ class NetworkStub: NetworkType {
         }
         
     }
-    
 }
-
+/// - Todo: Week2
 // MARK: - Dummy
 struct Dummy {
     static let image = UIImage(named: "dummy")!

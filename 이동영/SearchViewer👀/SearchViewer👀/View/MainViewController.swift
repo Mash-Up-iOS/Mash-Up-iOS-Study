@@ -38,7 +38,6 @@ class MainViewController: UIViewController {
         
         layout.itemSize = CGSize(width: side,
                                  height: side)
-        print(#function, layout.itemSize)
         layout.sectionInset = UIEdgeInsets(top: 15,
                                            left: 15,
                                            bottom: 15,
@@ -83,7 +82,7 @@ extension MainViewController: UICollectionViewDelegate {
             let searchResultCell = cell as? SearchResultCell
             else { return }
         let model = presenter.cellForItem(at: indexPath.item)
-        searchResultCell.updateThumnail(image: model.thumnailImage)
+        searchResultCell.updateThumnail(model)
     }
     
 }
