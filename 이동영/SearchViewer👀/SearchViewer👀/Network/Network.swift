@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 protocol NetworkType {
+    
     static func request(query: String, completion: @escaping (Result<Data,Error>) -> Void )
     static func fetchImage(url: URL, completion: @escaping (Result<UIImage, Error>) -> Void )
 }

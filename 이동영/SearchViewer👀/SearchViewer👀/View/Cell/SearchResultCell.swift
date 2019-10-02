@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchResultCell: UICollectionViewCell {
-    
+
     // MARK: - Properties
     static let nib = UINib(nibName: URL(fileURLWithPath: #file).fileName,
                            bundle: .main)
@@ -32,7 +32,7 @@ class SearchResultCell: UICollectionViewCell {
         self.thumnailImageView.image = nil
     }
     
-    func setAutoLayout() {
+    private func setAutoLayout() {
         let constraints = [
             titleLabel
                 .topAnchor
