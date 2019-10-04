@@ -11,5 +11,5 @@ import UIKit
 
 // MARK: - SearchResultRepository
 struct SearchResultRepository {
-        let searchResults: [SearchResult]
+    let searchResults: [SearchResult]
 }

@@ -66,7 +66,6 @@ extension MainViewController: UICollectionViewDataSource {
         
         let model = presenter.cellForItem(at: indexPath.item)
         searchResultCell.configure(searchResult: model)
-        searchResultCell.thumnailImageView.contentMode = .scaleAspectFill
         
         return searchResultCell
     }

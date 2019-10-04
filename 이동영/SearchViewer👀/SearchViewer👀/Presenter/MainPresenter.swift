@@ -17,6 +17,7 @@ protocol MainPresenterType {
 
 // MARK: - MainPresenter
 class MainPresenter: MainPresenterType {
+    
     // MARK: Properties
     private var model: SearchResultRepository
     
