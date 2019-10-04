@@ -11,9 +11,9 @@ import UIKit
 class SearchResultCell: UICollectionViewCell {
 
     // MARK: - Properties
-    static let nib = UINib(nibName: URL(fileURLWithPath: #file).fileName,
+    static let nib = UINib(nibName: URL.fileName,
                            bundle: .main)
-    static let reuseId = URL(fileURLWithPath: #file).fileName
+    static let reuseId = URL.fileName
     
     // MARK: IBOutlets
     @IBOutlet weak var titleLabel: UILabel!

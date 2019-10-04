@@ -9,7 +9,7 @@
 import Foundation
 
 extension URL {
-    var fileName: String {
-        return self.deletingPathExtension().lastPathComponent
+    static var fileName: String {
+        return URL(fileURLWithPath: #file).deletingPathExtension().lastPathComponent
     }
 }
