@@ -23,8 +23,8 @@ class SearchResultCell: UICollectionViewCell {
     // MARK: - Methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.thumnailImageView.contentMode = .scaleAspectFill
-        self.thumnailImageView.image = #imageLiteral(resourceName: "default")
+        thumnailImageView.contentMode = .scaleAspectFill
+        thumnailImageView.image = #imageLiteral(resourceName: "default")
         setAutoLayout()
     }
     
