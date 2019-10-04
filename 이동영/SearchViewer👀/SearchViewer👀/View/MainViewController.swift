@@ -19,10 +19,10 @@ class MainViewController: UIViewController {
     // MARK:  - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupsearchResultCollectionView()
+        setupSearchResultCollectionView()
     }
     
-    private func setupsearchResultCollectionView() {
+    private func setupSearchResultCollectionView() {
         searchResultListView.register(SearchResultCell.nib,
                                       forCellWithReuseIdentifier: SearchResultCell.reuseId)
         searchResultListView.dataSource = self
