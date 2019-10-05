@@ -11,9 +11,9 @@ import UIKit
 class SearchResultCell: UICollectionViewCell {
 
     // MARK: - Properties
-    static let nib = UINib(nibName: URL.currentFileName,
+    static let nib = UINib(nibName: URL(fileURLWithPath: #file).fileName,
                            bundle: .main)
-    static let reuseId = URL.currentFileName
+    static let reuseId = URL(fileURLWithPath: #file).fileName
     
     // MARK: IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -23,71 +23,16 @@ class SearchResultCell: UICollectionViewCell {
     // MARK: - Methods
     override func awakeFromNib() {
         super.awakeFromNib()
+        titleLabel.backgroundColor = .cyan
+        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         thumnailImageView.contentMode = .scaleAspectFill
         thumnailImageView.image = #imageLiteral(resourceName: "default")
-        setAutoLayout()
+        loadingIndicator.style = .large
     }
     
     override func prepareForReuse() {
-        self.thumnailImageView.image = nil
-    }
-    
-    private func setAutoLayout() {
-        let constraints = [
-            titleLabel
-                .topAnchor
-                .constraint(equalToSystemSpacingBelow: self.contentView.topAnchor,
-                            multiplier: 0),
-            titleLabel
-                .leadingAnchor
-                .constraint(equalToSystemSpacingAfter: self.contentView.leadingAnchor,
-                            multiplier: 0),
-            titleLabel
-                .trailingAnchor
-                .constraint(equalToSystemSpacingAfter: self.contentView.trailingAnchor,
-                            multiplier: 0),
-            thumnailImageView
-                .topAnchor
-                .constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor,
-                            multiplier: 0),
-            thumnailImageView
-                .leadingAnchor
-                .constraint(equalToSystemSpacingAfter: self.contentView.leadingAnchor,
-                            multiplier: 0),
-            thumnailImageView
-                .trailingAnchor
-                .constraint(equalToSystemSpacingAfter: self.contentView.trailingAnchor,
-                            multiplier: 0),
-            thumnailImageView
-                .bottomAnchor
-                .constraint(equalToSystemSpacingBelow: self.contentView.bottomAnchor,
-                            multiplier: 0),
-            loadingIndicator
-                .centerXAnchor
-                .constraint(equalToSystemSpacingAfter: thumnailImageView.centerXAnchor
-                    , multiplier: 0),
-            loadingIndicator
-                .centerYAnchor
-                .constraint(equalToSystemSpacingBelow: thumnailImageView.centerYAnchor,
-                            multiplier: 0),
-            loadingIndicator
-                .widthAnchor
-                .constraint(equalTo: thumnailImageView.widthAnchor,
-                            multiplier: 0),
-            loadingIndicator
-                .heightAnchor
-                .constraint(equalTo: loadingIndicator.widthAnchor,
-                            multiplier: 0),
-            loadingIndicator
-                .centerXAnchor
-                .constraint(equalToSystemSpacingAfter: self.contentView.centerXAnchor,
-                            multiplier: 0),
-            loadingIndicator
-                .centerYAnchor
-                .constraint(equalToSystemSpacingBelow: self.contentView.centerYAnchor,
-                            multiplier: 0)
-        ]
-        NSLayoutConstraint.activate(constraints)
+        thumnailImageView.image = #imageLiteral(resourceName: "default")
     }
     
     func configure(searchResult: SearchResult) {
