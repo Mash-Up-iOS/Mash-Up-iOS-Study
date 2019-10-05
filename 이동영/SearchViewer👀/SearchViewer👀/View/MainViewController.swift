@@ -31,9 +31,7 @@ class MainViewController: UIViewController {
     }
     
     private func setupLayout() {
-        guard
-            let layout = searchResultListView.collectionViewLayout as? UICollectionViewFlowLayout
-            else { return }
+        let layout = UICollectionViewFlowLayout()
         let side = UIScreen.main.bounds.width/3 - 20
         
         layout.itemSize = CGSize(width: side,
@@ -44,6 +42,7 @@ class MainViewController: UIViewController {
                                            right: 15)
         layout.minimumLineSpacing = 15
         layout.minimumInteritemSpacing = 15
+        searchResultListView.collectionViewLayout = layout
     }
     
 }
@@ -63,7 +62,6 @@ extension MainViewController: UICollectionViewDataSource {
         guard
             let searchResultCell = cell as? SearchResultCell
             else { return cell }
-        
         let model = presenter.cellForItem(at: indexPath.item)
         searchResultCell.configure(searchResult: model)
         
