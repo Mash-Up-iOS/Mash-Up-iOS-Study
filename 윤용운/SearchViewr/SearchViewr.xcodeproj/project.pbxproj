@@ -17,6 +17,8 @@
 		AE16A2D4233B57B500D4093D /* SearchViewrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16A2D3233B57B500D4093D /* SearchViewrUITests.swift */; };
 		AE16A2E3233B57ED00D4093D /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16A2E1233B57ED00D4093D /* ImageCollectionViewCell.swift */; };
 		AE16A2E4233B57ED00D4093D /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE16A2E2233B57ED00D4093D /* ImageCollectionViewCell.xib */; };
+		AECDA5462341F315009C0919 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECDA5452341F315009C0919 /* Request.swift */; };
+		AECDA549234238CA009C0919 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECDA548234238CA009C0919 /* Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		AE16A2D5233B57B500D4093D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE16A2E1233B57ED00D4093D /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE16A2E2233B57ED00D4093D /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		AECDA5452341F315009C0919 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		AECDA548234238CA009C0919 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +87,10 @@
 		AE16A2A5233B57B300D4093D = {
 			isa = PBXGroup;
 			children = (
+				AE16A2AF233B57B300D4093D /* Products */,
 				AE16A2B0233B57B300D4093D /* SearchViewr */,
 				AE16A2C7233B57B500D4093D /* SearchViewrTests */,
 				AE16A2D2233B57B500D4093D /* SearchViewrUITests */,
-				AE16A2AF233B57B300D4093D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,13 +109,10 @@
 			children = (
 				AE16A2B1233B57B300D4093D /* AppDelegate.swift */,
 				AE16A2B3233B57B300D4093D /* SceneDelegate.swift */,
-				AE16A2B5233B57B300D4093D /* ViewController.swift */,
-				AE16A2E1233B57ED00D4093D /* ImageCollectionViewCell.swift */,
-				AE16A2E2233B57ED00D4093D /* ImageCollectionViewCell.xib */,
-				AE16A2B7233B57B300D4093D /* Main.storyboard */,
-				AE16A2BA233B57B400D4093D /* Assets.xcassets */,
-				AE16A2BC233B57B400D4093D /* LaunchScreen.storyboard */,
-				AE16A2BF233B57B400D4093D /* Info.plist */,
+				AECDA5442341F2F1009C0919 /* Network */,
+				AE16A3722340EAC600D4093D /* Main */,
+				AE16A3712340EABF00D4093D /* Extension */,
+				AE16A3702340EAB600D4093D /* Supports */,
 			);
 			path = SearchViewr;
 			sourceTree = "<group>";
@@ -132,6 +133,59 @@
 				AE16A2D5233B57B500D4093D /* Info.plist */,
 			);
 			path = SearchViewrUITests;
+			sourceTree = "<group>";
+		};
+		AE16A3702340EAB600D4093D /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				AE16A2BA233B57B400D4093D /* Assets.xcassets */,
+				AE16A2BC233B57B400D4093D /* LaunchScreen.storyboard */,
+				AE16A2BF233B57B400D4093D /* Info.plist */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		AE16A3712340EABF00D4093D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		AE16A3722340EAC600D4093D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AE16A3732340EADB00D4093D /* CollectionViewCell */,
+				AE16A2B5233B57B300D4093D /* ViewController.swift */,
+				AE16A2B7233B57B300D4093D /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		AE16A3732340EADB00D4093D /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE16A2E2233B57ED00D4093D /* ImageCollectionViewCell.xib */,
+				AE16A2E1233B57ED00D4093D /* ImageCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		AECDA5442341F2F1009C0919 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AECDA547234238BB009C0919 /* Model */,
+				AECDA5452341F315009C0919 /* Request.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		AECDA547234238BB009C0919 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AECDA548234238CA009C0919 /* Image.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,7 +321,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE16A2B6233B57B300D4093D /* ViewController.swift in Sources */,
+				AECDA549234238CA009C0919 /* Image.swift in Sources */,
 				AE16A2B2233B57B300D4093D /* AppDelegate.swift in Sources */,
+				AECDA5462341F315009C0919 /* Request.swift in Sources */,
 				AE16A2E3233B57ED00D4093D /* ImageCollectionViewCell.swift in Sources */,
 				AE16A2B4233B57B300D4093D /* SceneDelegate.swift in Sources */,
 			);
@@ -444,7 +500,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6HG325P9V2;
-				INFOPLIST_FILE = SearchViewr/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SearchViewr/Supports/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,7 +518,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6HG325P9V2;
-				INFOPLIST_FILE = SearchViewr/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SearchViewr/Supports/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
