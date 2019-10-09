@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "F5B2D25D-1D66-4B06-A27E-CCA7C55B0BDB"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5AC2D3EC-434A-40F2-8FC6-8B439C0340B1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SearchViewer&#x1f440;/View/Cell/SearchResultCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "nib"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "5AC2D3EC-434A-40F2-8FC6-8B439C0340B1 - 910b69fbeee57814"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_8286A0E5E1575C64842019464FA6B22E_func0"
+                  moduleName = "SearchViewer&#x1f440;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ldcpaul/Downloads/Mash-Up/Mash-Up-iOS-Study/%E1%84%8B%E1%85%B5%E1%84%83%E1%85%A9%E1%86%BC%E1%84%8B%E1%85%A7%E1%86%BC/SearchViewer%F0%9F%91%80/SearchViewer%F0%9F%91%80/View/Cell/SearchResultCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "91">
+               </Location>
+               <Location
+                  uuid = "5AC2D3EC-434A-40F2-8FC6-8B439C0340B1 - a37c07b5b42a2c1e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SearchViewer_.SearchResultCell.nib.unsafeMutableAddressor : __C.UINib"
+                  moduleName = "SearchViewer&#x1f440;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ldcpaul/Downloads/Mash-Up/Mash-Up-iOS-Study/%E1%84%8B%E1%85%B5%E1%84%83%E1%85%A9%E1%86%BC%E1%84%8B%E1%85%A7%E1%86%BC/SearchViewer%F0%9F%91%80/SearchViewer%F0%9F%91%80/View/Cell/SearchResultCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "5AC2D3EC-434A-40F2-8FC6-8B439C0340B1 - 51f67b5030f03ea7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static SearchViewer_.SearchResultCell.nib.getter : __C.UINib"
+                  moduleName = "SearchViewer&#x1f440;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ldcpaul/Downloads/Mash-Up/Mash-Up-iOS-Study/%E1%84%8B%E1%85%B5%E1%84%83%E1%85%A9%E1%86%BC%E1%84%8B%E1%85%A7%E1%86%BC/SearchViewer%F0%9F%91%80/SearchViewer%F0%9F%91%80/View/Cell/SearchResultCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "55">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
