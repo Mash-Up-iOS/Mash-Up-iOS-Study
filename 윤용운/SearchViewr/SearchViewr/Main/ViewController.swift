@@ -13,7 +13,9 @@ class ViewController: UIViewController {
     // MARK: - IBOutlet
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
-            initCollectionView()
+            delegateCollectionView()
+            registerCollectionView()
+            initCollectionViewFlowLayout()
         }
     }
     @IBOutlet weak var textField: UITextField! {
@@ -34,12 +36,14 @@ class ViewController: UIViewController {
     // MARK: - Init
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        NotificationCenter.default.addObserver(self, selector: #selector(receiveNotification(_:)), name: receiveNotificationName, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(receiveNotification(_:)),
+                                               name: receiveNotificationName,
+                                               object: nil)
     }
-
+    
     // MARK: - Handlers
-    @objc
-    func receiveNotification(_ notification: Notification) {
+    @objc func receiveNotification(_ notification: Notification) {
         guard let image = notification.userInfo?["Image"] as? Image else { return }
         requestedImage = image
         DispatchQueue.main.async {
@@ -47,19 +51,34 @@ class ViewController: UIViewController {
         }
     }
     
-    func initCollectionView() {
-        let nib: String = "ImageCollectionViewCell"
-        let collectionViewCellNib: UINib = UINib(nibName: nib, bundle: nil)
-        collectionView.register(collectionViewCellNib, forCellWithReuseIdentifier: cellIdentifier)
+    func delegateCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
     
+    func initCollectionViewFlowLayout() {
+        let layout: UICollectionViewFlowLayout = {
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            return layout
+        }()
+        collectionView.collectionViewLayout = layout
+    }
+    
+    func registerCollectionView() {
+        let nib: String = "ImageCollectionViewCell"
+        let collectionViewCellNib: UINib = UINib(nibName: nib,
+                                                 bundle: nil)
+        collectionView.register(collectionViewCellNib,
+                                forCellWithReuseIdentifier: cellIdentifier)
+    }
+
     @IBAction func searchAction(_ sender: UIButton) {
         guard let text = textField.text else { return }
         requestURL(search: text)
     }
 }
+
 // MARK: - UICollectionView
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -67,25 +86,22 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? ImageCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
+                                                            for: indexPath) as? ImageCollectionViewCell else { return UICollectionViewCell() }
         let image = requestedImage.items[indexPath.item]
-        cell.configure(url: image.thumbnail, text: image.title)
-        cell.backgroundColor = .darkGray
-        print(cell.layer.frame)
+        cell.configure(url: image.thumbnail,
+                       text: image.title)
         return cell
     }
 }
 
-extension ViewController: UICollectionViewDelegate {
+// collectionview layout은 delegate로 하면 호출 안됨. 꼭 extension delegateflowlayout.
+extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let fullWidth = view.frame.width
-        let item = requestedImage.items[indexPath.item]
-        let width = Double(item.sizewidth)
-        let height = Double(item.sizeheight)
-        return CGSize(width: width!, height: height!)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        let width = collectionView.bounds.width / 2
+        let height = collectionView.bounds.height
+        return CGSize(width: width,
+                      heighßt: height)
     }
 }
 

@@ -10,13 +10,16 @@ import UIKit
 
 class ImageCollectionViewCell: UICollectionViewCell {
 
+    // MARK: - Properties
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
-//            imageView.contentMode = .scaleAspectFill
+            imageView.layer.cornerRadius = 15
+            imageView.contentMode = .scaleAspectFill
         }
     }
     @IBOutlet weak var titleLabel: UILabel!
-
+ 
+    // MARK: - Handlers
     func configure(url: String, text: String) {
         guard let imageURL = URL(string: url) else { return }
         do {
