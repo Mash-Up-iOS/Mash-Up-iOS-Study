@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SearchViewr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NdG-IE-NKx">
+                                <rect key="frame" x="8" y="110" width="414" height="452"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="5" id="rjK-FU-Odu">
+                                    <size key="itemSize" width="135" height="135"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="8"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0k-vh-95s">
+                                <rect key="frame" x="348" y="60" width="50" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="auH-cC-Nw6"/>
+                                </constraints>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="searchAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8uA-mB-AYb"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J3k-cJ-X8U">
+                                <rect key="frame" x="16" y="60" width="324" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V0k-vh-95s" secondAttribute="trailing" constant="16" id="3yt-m1-AiB"/>
+                            <constraint firstItem="NdG-IE-NKx" firstAttribute="top" secondItem="V0k-vh-95s" secondAttribute="bottom" constant="16" id="6Mb-ze-6N2"/>
+                            <constraint firstAttribute="trailing" secondItem="NdG-IE-NKx" secondAttribute="trailing" constant="-8" id="73Z-5E-fkH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NdG-IE-NKx" secondAttribute="bottom" constant="300" id="IMA-KA-D1p"/>
+                            <constraint firstItem="V0k-vh-95s" firstAttribute="top" secondItem="J3k-cJ-X8U" secondAttribute="top" id="IhW-Zv-Hda"/>
+                            <constraint firstItem="J3k-cJ-X8U" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Qgw-ML-7tp"/>
+                            <constraint firstItem="V0k-vh-95s" firstAttribute="bottom" secondItem="J3k-cJ-X8U" secondAttribute="bottom" id="Ri3-w6-QUA"/>
+                            <constraint firstItem="J3k-cJ-X8U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ecW-Qa-i8C"/>
+                            <constraint firstItem="V0k-vh-95s" firstAttribute="leading" secondItem="J3k-cJ-X8U" secondAttribute="trailing" constant="8" id="v6v-5q-5gU"/>
+                            <constraint firstItem="NdG-IE-NKx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="xT8-2Q-NOR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="EaL-cl-dKi" appends="YES" id="dVo-2c-H1g"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="NdG-IE-NKx" id="6Mv-b8-Dob"/>
+                        <outlet property="tapGesture" destination="EaL-cl-dKi" id="Gtk-ZK-2hg"/>
+                        <outlet property="textField" destination="J3k-cJ-X8U" id="M7l-hK-gIM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="EaL-cl-dKi"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+</document>
