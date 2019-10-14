@@ -34,13 +34,6 @@ class ViewController: UIViewController {
     var requestedImage: Image = Image()
     
     // MARK: - Init
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(receiveNotification(_:)),
-                                               name: receiveNotificationName,
-                                               object: nil)
-    }
     
     // MARK: - Handlers
     @objc func receiveNotification(_ notification: Notification) {
@@ -75,7 +68,10 @@ class ViewController: UIViewController {
 
     @IBAction func searchAction(_ sender: UIButton) {
         guard let text = textField.text else { return }
-        requestURL(search: text)
+        requestURL(search: text) { image in
+            self.requestedImage = image
+            self.collectionView.reloadData()
+        }
     }
 }
 
@@ -87,7 +83,10 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
-                                                            for: indexPath) as? ImageCollectionViewCell else { return UICollectionViewCell() }
+                                                            for: indexPath) as? ImageCollectionViewCell else {
+                                                                return UICollectionViewCell()
+                                                                
+        }
         let image = requestedImage.items[indexPath.item]
         cell.configure(url: image.thumbnail,
                        text: image.title)
@@ -110,7 +109,10 @@ extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if let text = textField.text {
-            requestURL(search: text)
+            requestURL(search: text) { image in
+                self.requestedImage = image
+                self.collectionView.reloadData()
+            }
         }
         return true
     }

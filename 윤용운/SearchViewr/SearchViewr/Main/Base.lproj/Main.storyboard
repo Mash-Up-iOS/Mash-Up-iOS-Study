@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NdG-IE-NKx">
-                                <rect key="frame" x="8" y="110" width="414" height="452"/>
+                                <rect key="frame" x="8" y="110" width="398" height="452"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="5" id="rjK-FU-Odu">
                                     <size key="itemSize" width="135" height="135"/>
@@ -47,7 +47,7 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V0k-vh-95s" secondAttribute="trailing" constant="16" id="3yt-m1-AiB"/>
                             <constraint firstItem="NdG-IE-NKx" firstAttribute="top" secondItem="V0k-vh-95s" secondAttribute="bottom" constant="16" id="6Mb-ze-6N2"/>
-                            <constraint firstAttribute="trailing" secondItem="NdG-IE-NKx" secondAttribute="trailing" constant="-8" id="73Z-5E-fkH"/>
+                            <constraint firstAttribute="trailing" secondItem="NdG-IE-NKx" secondAttribute="trailing" constant="8" id="73Z-5E-fkH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NdG-IE-NKx" secondAttribute="bottom" constant="300" id="IMA-KA-D1p"/>
                             <constraint firstItem="V0k-vh-95s" firstAttribute="top" secondItem="J3k-cJ-X8U" secondAttribute="top" id="IhW-Zv-Hda"/>
                             <constraint firstItem="J3k-cJ-X8U" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Qgw-ML-7tp"/>
